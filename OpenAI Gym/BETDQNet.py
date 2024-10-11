@@ -176,7 +176,7 @@ class DQNAgent():
 
 if __name__ == "__main__":
     
-    env = gym.make('LunarLander-v2')
+    env = gym.make('CartPole-v0')
     
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
@@ -188,13 +188,13 @@ if __name__ == "__main__":
     avg_rewards = []
     steps = []
 
+    """
+    Initialization of gradient-based weight-adjustment
+    """
     agent.w1 = 0.2
     agent.w2 = 0.8
     zeta = 2.2
     lr = 0.001
-
-    success_counter = 0
-    success_rate = []
 
     for e in range(EPISODES):
         done = False
@@ -204,9 +204,11 @@ if __name__ == "__main__":
         state, _ = env.reset(seed=42)
         state = np.reshape(state, [1, state_size])
 
+        """
+        Gradient-based optimization of designated weights to the TD and BE errors
+        """
         dw1 = 2 * (zeta - (agent.w1 / agent.w2)) * (-1 / (agent.w1 + agent.w2)**2)
         dw2 = -dw1
-        
         agent.w1 -= dw1 * lr
         agent.w2 -= dw2 * lr
 
@@ -218,11 +220,7 @@ if __name__ == "__main__":
 
             action = agent.get_action(state)
             next_state, reward, done, _, _ = env.step(action)
-            next_state = np.reshape(next_state, [1, state_size])
-
-            if reward == 100:
-                success_counter += 1
-                done = True            
+            next_state = np.reshape(next_state, [1, state_size])      
                 
             ep_reward += reward
 
@@ -236,9 +234,8 @@ if __name__ == "__main__":
         steps.append(step)
 
         if e % 10 ==0 and e > 1:
-            print(f"Ep: {e}, Avg.: {np.mean(ep_rewards[-10:])}, success rate: {success_counter / e}")
+            print(f"Ep: {e}, Avg.: {np.mean(ep_rewards[-10:])}")
             avg_rewards.append(np.mean(ep_rewards[-10:]))
-            success_rate.append(success_counter / e)
 
         ep_rewards.append(ep_reward)
         episodes.append(e)            
