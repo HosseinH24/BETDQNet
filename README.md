@@ -1,4 +1,4 @@
-# BETDQNet: Bellman Error and TD trade-off Deep Q-Network
+# BETDQNet: Bellman Error and TD trade-off Q-Network
 
 ## Overview
 
