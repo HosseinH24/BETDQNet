@@ -46,7 +46,7 @@ Weights assigned to TD error (`w1`) and BE error (`w2`) are adjusted through gra
 To train the BETDQNet agent, simply run the provided script. The agent is configured to train on the CartPole-v0 environment.
 
 ```bash
-python betdqnet.py
+python BETDQNet.py
 ```
 
 The script runs for a total of 250 episodes by default, though this can be adjusted in the `EPISODES` variable.
