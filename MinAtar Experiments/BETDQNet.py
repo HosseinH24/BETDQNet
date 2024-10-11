@@ -134,8 +134,9 @@ class DQNAgent():
 			new_q = reward
 
 		td_error = torch.abs(new_q - current_qs[0][action])
-		be_error = torch.abs(torch.mean(current_qs) - torch.mean(future_qs))
-		total_error = self.w1 * td_error + self.w2 * be_error
+		be_error = torch.abs(new_q - current_qs)
+	        mean_be_error = torch.mean(be_error)
+	        weighted_error = self.w1 * td_error + self.w2 * mean_be_error
 		total_error = f.relu(total_error).cpu() # pass the error through the ReLU activation so as to make sure scores are non-negative
 
 		self.memory.add(total_error, (state, action, reward, next_state, done)) #torch.ones(1,1)
