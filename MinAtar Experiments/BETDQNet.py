@@ -28,7 +28,7 @@ Calling the environment name and setting the log directory for the tensorflow  l
 """
 env = gym.make('MinAtar/Freeway-v1')
 current_time = datetime.datetime.now().strftime(" %Y%m%d-%H%M%S")
-log_dir = 'logs/freeway_bet_3' + current_time
+log_dir = 'logs/freeway_bet_1' + current_time
 summary_writer = tf.summary.create_file_writer(log_dir)
 
 """
