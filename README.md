@@ -1,4 +1,4 @@
-# BETDQNet: Bellman and Temporal Difference Error DQN
+# BETDQNet: Bellman Error and TD trade-off Deep Q-Network
 
 ## Overview
 
