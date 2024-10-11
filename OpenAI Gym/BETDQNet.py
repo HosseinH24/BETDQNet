@@ -120,7 +120,7 @@ class DQNAgent():
         td_error = torch.abs(new_q - current_qs[0][action])
         be_error = torch.abs(new_q - current_qs)
         mean_be_error = torch.mean(be_error)
-        weighted_error = self.w1 * td_error + self.w2 * be_error
+        weighted_error = self.w1 * td_error + self.w2 * mean_be_error
 
         self.memory.add(weighted_error, (state, action, reward, next_state, done)) #torch.ones(1,1)
 
