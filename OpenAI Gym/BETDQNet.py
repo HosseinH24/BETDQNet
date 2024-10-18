@@ -122,7 +122,7 @@ class DQNAgent():
         mean_be_error = torch.mean(be_error)
         weighted_error = self.w1 * td_error + self.w2 * mean_be_error
 
-        self.memory.add(weighted_error, (state, action, reward, next_state, done)) #torch.ones(1,1)
+        self.memory.add(weighted_error, (state, action, reward, next_state, done))
 
     def train_model(self):
         if self.epsilon > self.epsilon_min:
