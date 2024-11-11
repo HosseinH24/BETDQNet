@@ -51,6 +51,12 @@ python BETDQNet.py
 
 The script runs for a total of 250 episodes by default, though this can be adjusted in the `EPISODES` variable.
 
+## Citation
+The codes provided in this repository supports the research findings detailed in the following paper:
+
+Hassani, Hossein, Soodeh Nikan, and Abdallah Shami. ``Improved exploration-exploitation trade-off through adaptive prioritized experience replay.'' Neurocomputing (2024): 128836.
+
+Please cite this paper if you use this repo in your research.
 
 ## Acknowledgements
 
