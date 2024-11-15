@@ -54,7 +54,7 @@ The script runs for a total of 250 episodes by default, though this can be adjus
 ## Citation
 The codes provided in this repository support the research findings detailed in the following paper:
 
-Hassani, Hossein, Soodeh Nikan, and Abdallah Shami. ``Improved exploration-exploitation trade-off through adaptive prioritized experience replay.'' Neurocomputing (2024): 128836.
+Hassani, Hossein, Soodeh Nikan, and Abdallah Shami. "Improved Exploration–Exploitation Trade-Off through Adaptive Prioritized Experience Replay." Neurocomputing 614 (2025): 128836.
 
 Please cite this paper if you use this repository in your research.
 
